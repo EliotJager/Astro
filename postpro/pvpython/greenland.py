@@ -129,9 +129,9 @@ def ViewGreenland(View):
   # 2D mode
   View.InteractionMode = '2D'
   # Camera settings
-  renderView1.CameraPosition = [53435.2, -2003849.5, 7062504.8]
-  renderView1.CameraFocalPoint = [53435.2, -2003849.5, 0.0]
-  renderView1.CameraParallelScale = 1527263.3
+  View.CameraPosition = [53435.2, -2003849.5, 7062504.8]
+  View.CameraFocalPoint = [53435.2, -2003849.5, 0.0]
+  View.CameraParallelScale = 1527263.3
   View.CameraParallelProjection = 1
 
   if ("viewsize" in globals()) :
