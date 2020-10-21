@@ -49,7 +49,6 @@ def greenland_results(PVDfile=None,GridFile=None,BedId=102):
 
    # create a new 'Calculator'
   calculatorTaub = Calculator(Input=Surface)
-  calculatorTaub.Function = ''
 
    # Properties modified on calculator12
   calculatorTaub.ResultArrayName = 'Tau_b'
@@ -121,6 +120,23 @@ def ViewGreenland(View):
 
   if ("viewsize" in globals()) :
       View.ViewSize = viewsize
+
+
+##################################################################################
+### a common config for the views
+############################################################################
+def ViewGreenland(View):
+  # 2D mode
+  View.InteractionMode = '2D'
+  # Camera settings
+  renderView1.CameraPosition = [53435.2, -2003849.5, 7062504.8]
+  renderView1.CameraFocalPoint = [53435.2, -2003849.5, 0.0]
+  renderView1.CameraParallelScale = 1527263.3
+  View.CameraParallelProjection = 1
+
+  if ("viewsize" in globals()) :
+      View.ViewSize = viewsize
+
 
 
 #########################################################
