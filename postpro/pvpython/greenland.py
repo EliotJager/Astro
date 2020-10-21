@@ -316,7 +316,7 @@ def ResultTaub(Source=None, Variable='ssavalocity', interval = [0.001,1.0]):
   ## making some contours
   
   ## display + savescreen
-  Render(SurfaceView)
+  #Render(SurfaceView)
   SaveScreenshot(Variable+'.png', SurfaceView)
 
   # get color transfer function/color map for 'Umod'
@@ -353,7 +353,7 @@ def ResultTaub(Source=None, Variable='ssavalocity', interval = [0.001,1.0]):
 
 
   ## display + savescreen
-  Render(SurfaceView)
+  #Render(SurfaceView)
   SaveScreenshot(Variable+'contour.png', SurfaceView)
   Hide(Source,SurfaceView)
   Hide(ContourVel,SurfaceView)
