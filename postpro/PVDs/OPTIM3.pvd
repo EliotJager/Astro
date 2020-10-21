@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<VTKFile type="Collection" version="0.1"
+        byte_order="LittleEndian" 
+        compressor="vtkZLibDataCompressor">
+  <Collection>
+   <DataSet timestep="1" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM0_t0003.pvtu"/>
+   <DataSet timestep="2" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM15_t0003.pvtu"/>
+   <DataSet timestep="3" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM16_t0003.pvtu"/>
+   <DataSet timestep="4" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM17_t0003.pvtu"/>
+   <DataSet timestep="5" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM18_t0003.pvtu"/>
+   <DataSet timestep="6" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM19_t0003.pvtu"/>
+   <DataSet timestep="7" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM20_t0003.pvtu"/>
+   <DataSet timestep="8" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM21_t0003.pvtu"/>
+   <DataSet timestep="9" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM22_t0003.pvtu"/>
+   <DataSet timestep="10" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM23_t0003.pvtu"/>
+   <DataSet timestep="11" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM26_t0003.pvtu"/>
+   <DataSet timestep="12" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM29_t0003.pvtu"/>
+   <DataSet timestep="13" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM31_t0003.pvtu"/>
+   <DataSet timestep="14" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM33_t0003.pvtu"/>
+   <DataSet timestep="15" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM5_t0003.pvtu"/>
+   <DataSet timestep="16" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/PVTUs_OPTIM/OPTIM8_t0003.pvtu"/>
+   <DataSet timestep="17" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/m1_fine/PVTUs_OPTIM/OPTIM13_t0003.pvtu"/>
+   <DataSet timestep="18" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/m1_fine/PVTUs_OPTIM/OPTIM24_t0003.pvtu"/>
+   <DataSet timestep="19" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/m1_fine/PVTUs_OPTIM/OPTIM25_t0003.pvtu"/>
+   <DataSet timestep="20" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/m1_fine/PVTUs_OPTIM/OPTIM30_t0003.pvtu"/>
+   <DataSet timestep="21" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS/LatinHyper40/m1_fine/PVTUs_OPTIM/OPTIM34_t0003.pvtu"/>
+  </Collection>
+</VTKFile>
