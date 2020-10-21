@@ -9,7 +9,7 @@ paraview.simple._DisableFirstRenderCameraReset()
 vertical_scale=10
 
 ###############################
-def greenland_results(PVDfile=None,GridFile=None,BedId=102):
+def greenland_results(PVDfile=None,GridFile=None,BedId=102, list_glacier=['Jakobsen', 'Newman', '79NorthLarge', '79NorthZoom', 'Upernavik', 'West', 'Kanger', 'Helheim']):
 
   # get active view
   SurfaceView = GetActiveViewOrCreate('RenderView')
@@ -96,6 +96,13 @@ def greenland_results(PVDfile=None,GridFile=None,BedId=102):
   ResultTaub(calculatorCV_Taub, 'CV_Tau_b(%)', [1,100])
 
 
+## we plot now the average, the std and CV for the list of glaciers
+  for glacier in list_glacier:
+    ResultTaub(calculatorCV_Taub, 'Tau_b_average', choice_view=glacier)
+    ResultTaub(calculatorCV_Taub, 'Tau_b_stddev', [0.00001,0.1], choice_view=glacier)
+    ResultTaub(calculatorCV_Taub, 'CV_Tau_b(%)', [1,100], choice_view=glacier)
+
+
 
 ## project surface results on the observation grid
   if (GridFile != None):
@@ -107,50 +114,83 @@ def greenland_results(PVDfile=None,GridFile=None,BedId=102):
      ProjectToGrid(run,GridFile,BedId)
 
 ##################################################################################
-### a common config for the views
+### a common config for the view of full greenland
 ############################################################################
-def ViewGreenland(View):
+def ViewGreenland(View, choice_view = 'full'):
+
   # 2D mode
   View.InteractionMode = '2D'
-  # Camera settings
-  View.CameraPosition = [110990.3125, -1996074.0, 8015672.0]
-  View.CameraFocalPoint = [110990.3125, -1996074.0, 9869.0]
-  View.CameraParallelScale = 2106070.0
+   
+  if choice_view == 'full':
+    # Camera settings
+    View.CameraPosition = [110990.3125, -1996074.0, 8015672.0]
+    View.CameraFocalPoint = [110990.3125, -1996074.0, 9869.0]
+    View.CameraParallelScale = 2106070.0
+   
+  elif choice_view == 'Jakobsen':
+    # Camera settings
+    View.CameraPosition = [-141671.6, -2273001.9, 7062504.8]
+    View.CameraFocalPoint = [-141671.6, -2273001.9, 0.0]
+    View.CameraParallelScale = 1262201.1
+   
+  elif choice_view == 'Newman':
+    # Camera settings
+    View.CameraPosition = [-184849.4, -1010779.6, 7062504.8]
+    View.CameraFocalPoint = [-184849.4, -1010779.6, 0.0]
+    View.CameraParallelScale = 155056.3
+   
+  elif choice_view == '79NorthLarge':
+    # Camera settings
+    View.CameraPosition = [406058.8, -1356398.4, 7062504.8]
+    View.CameraFocalPoint = [406058.8, -1356398.4, 0.0]
+    View.CameraParallelScale = 402176.2
+
+  elif choice_view == '79NorthZoom':
+    # Camera settings
+    View.CameraPosition = [465140.3, -1160772.8, 7062504.8]
+    View.CameraFocalPoint = [465140.3, -1160772.8, 0.0]
+    View.CameraParallelScale = 155056.3
+
+  elif choice_view == 'Upernavik':
+    # Camera settings
+    View.CameraPosition = [-275751.1, -1828912.6, 7062504.8]
+    View.CameraFocalPoint = [-275751.1, -1828912.6, 0.0]
+    View.CameraParallelScale = 72334.9
+
+  elif choice_view == 'West':
+    # Camera settings
+    View.CameraPosition = [-272484.2, -1649026.6, 7062504.8]
+    View.CameraFocalPoint = [-272484.2, -1649026.6, 0.0]
+    View.CameraParallelScale = 227018.0
+
+  elif choice_view == 'Kanger':
+    # Camera settings
+    View.CameraPosition = [492643.2, -2284401.3, 7062504.8]
+    View.CameraFocalPoint = [492643.2, -2284401.3, 0.0]
+    View.CameraParallelScale = 155056.3
+
+  elif choice_view == 'Helheim':
+    # Camera settings
+    View.CameraPosition = [323172.1, -2552902.7, 7062504.8]
+    View.CameraFocalPoint = [323172.1, -2552902.7, 0.0]
+    View.CameraParallelScale = 87525.3
+
   View.CameraParallelProjection = 1
 
   if ("viewsize" in globals()) :
       View.ViewSize = viewsize
-
-
-##################################################################################
-### a common config for the views
-############################################################################
-def ViewGreenland(View):
-  # 2D mode
-  View.InteractionMode = '2D'
-  # Camera settings
-  View.CameraPosition = [53435.2, -2003849.5, 7062504.8]
-  View.CameraFocalPoint = [53435.2, -2003849.5, 0.0]
-  View.CameraParallelScale = 1527263.3
-  View.CameraParallelProjection = 1
-
-  if ("viewsize" in globals()) :
-      View.ViewSize = viewsize
-
-
 
 #########################################################
 ## plot the results
 #########################################################
-def ResultTaub(Source=None, Variable='ssavalocity', interval = [0.001,1.0]):
+def ResultTaub(Source=None, Variable='ssavalocity', interval = [0.001,1.0], choice_view = 'full'):
 
   if (Source==None):
     Source=FindSource("Results")
     Source.UpdatePipeline()
 
   SurfaceView = GetActiveViewOrCreate('RenderView')
-  ViewGreenland(SurfaceView)
-
+  ViewGreenland(SurfaceView, choice_view)
   SurfDisplay = Show(Source,SurfaceView)
   
   # set scalar coloring
@@ -177,7 +217,7 @@ def ResultTaub(Source=None, Variable='ssavalocity', interval = [0.001,1.0]):
   
   ## display + savescreen
   Render(SurfaceView)
-  SaveScreenshot(Variable+'.png', SurfaceView)
+  SaveScreenshot(Variable+choice_view+'.png', SurfaceView, ImageResolution=[972, 1181])
 
   # get color transfer function/color map for 'Umod'
 
@@ -214,7 +254,7 @@ def ResultTaub(Source=None, Variable='ssavalocity', interval = [0.001,1.0]):
 
   ## display + savescreen
   Render(SurfaceView)
-  SaveScreenshot(Variable+'contour.png', SurfaceView)
+  SaveScreenshot(Variable+choice_view+'contour.png', SurfaceView, ImageResolution=[972, 1181])
   Hide(Source,SurfaceView)
   Hide(ContourVel,SurfaceView)
 
