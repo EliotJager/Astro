@@ -9,7 +9,7 @@ paraview.simple._DisableFirstRenderCameraReset()
 vertical_scale=10
 
 ###############################
-def greenland_results(PVDfile=None,GridFile=None,BedId=102, list_glacier=['Jakobsen', 'Newman', '79NorthLarge', '79NorthZoom', 'Upernavik', 'West', 'Kanger', 'Helheim']):
+def greenland_results(PVDfile=None, OutFolder, GridFile=None,BedId=102, list_glacier=['Jakobsen', 'Newman', '79NorthLarge', '79NorthZoom', 'Upernavik', 'West', 'Kanger', 'Helheim']):
 
   # get active view
   SurfaceView = GetActiveViewOrCreate('RenderView')
@@ -72,16 +72,16 @@ def greenland_results(PVDfile=None,GridFile=None,BedId=102, list_glacier=['Jakob
 
 ## we plot the statistics
 # average
-  ResultTaub(calculatorUmod, 'Tau_b_average')
+  ResultTaub(calculatorUmod, OutFolder, 'Tau_b_average')
 
 # minimum 
-  ResultTaub(calculatorUmod, 'Tau_b_minimum')
+  ResultTaub(calculatorUmod, OutFolder, 'Tau_b_minimum')
 
 # maximum
-  ResultTaub(calculatorUmod, 'Tau_b_maximum')
+  ResultTaub(calculatorUmod, OutFolder, 'Tau_b_maximum')
 
 # standard deviation
-  ResultTaub(calculatorUmod, 'Tau_b_stddev', [0.00001,0.1])
+  ResultTaub(calculatorUmod, OutFolder, 'Tau_b_stddev', [0.00001,0.1])
 
 
 ## Coefficient of variation
@@ -93,14 +93,14 @@ def greenland_results(PVDfile=None,GridFile=None,BedId=102, list_glacier=['Jakob
   calculatorCV_Taub.Function = '100*Tau_b_stddev/Tau_b_average'
 
 ## other plot (CV)
-  ResultTaub(calculatorCV_Taub, 'CV_Tau_b(%)', [1,100])
+  ResultTaub(calculatorCV_Taub, OutFolder, 'CV_Tau_b(%)', [1,100])
 
 
 ## we plot now the average, the std and CV for the list of glaciers
   for glacier in list_glacier:
-    ResultTaub(calculatorCV_Taub, 'Tau_b_average', choice_view=glacier)
-    ResultTaub(calculatorCV_Taub, 'Tau_b_stddev', [0.00001,0.1], choice_view=glacier)
-    ResultTaub(calculatorCV_Taub, 'CV_Tau_b(%)', [1,100], choice_view=glacier)
+    ResultTaub(calculatorCV_Taub, OutFolder, 'Tau_b_average', choice_view=glacier)
+    ResultTaub(calculatorCV_Taub, OutFolder, 'Tau_b_stddev', [0.00001,0.1], choice_view=glacier)
+    ResultTaub(calculatorCV_Taub, OutFolder, 'CV_Tau_b(%)', [1,100], choice_view=glacier)
 
 
 
@@ -183,7 +183,7 @@ def ViewGreenland(View, choice_view = 'full'):
 #########################################################
 ## plot the results
 #########################################################
-def ResultTaub(Source=None, Variable='ssavalocity', interval = [0.001,1.0], choice_view = 'full'):
+def ResultTaub(Source=None, OutFolder, Variable='ssavalocity', interval = [0.001,1.0], choice_view = 'full'):
 
   if (Source==None):
     Source=FindSource("Results")
@@ -217,7 +217,7 @@ def ResultTaub(Source=None, Variable='ssavalocity', interval = [0.001,1.0], choi
   
   ## display + savescreen
   Render(SurfaceView)
-  SaveScreenshot(Variable+choice_view+'.png', SurfaceView, ImageResolution=[972, 1181])
+  SaveScreenshot(OutFolder + Variable + choice_view + '.png', SurfaceView, ImageResolution=[972, 1181])
 
   # get color transfer function/color map for 'Umod'
 
@@ -254,7 +254,7 @@ def ResultTaub(Source=None, Variable='ssavalocity', interval = [0.001,1.0], choi
 
   ## display + savescreen
   Render(SurfaceView)
-  SaveScreenshot(Variable+choice_view+'contour.png', SurfaceView, ImageResolution=[972, 1181])
+  SaveScreenshot(OutFolder + Variable + choice_view+'contour.png', SurfaceView, ImageResolution=[972, 1181])
   Hide(Source,SurfaceView)
   Hide(ContourVel,SurfaceView)
 
@@ -271,12 +271,10 @@ if __name__ == "__main__":
     if opt in ("-i"): 
         PVDFile=arg
         found_i=True
-    if opt in ("-g"):
-        GridFile=arg
-    if opt in ("-B"):
-        BedId=int(arg)
+    if opt in ("-o"):
+        Output=arg
 
   ## set view size for batch mode
   viewsize=[800,800]
 
-  greenland_results(PVDFile)
+  greenland_results(PVDFile, OutFolder=Output)
