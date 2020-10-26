@@ -9,7 +9,7 @@ paraview.simple._DisableFirstRenderCameraReset()
 vertical_scale=10
 
 ###############################
-def greenland_results(PVDfile=None, OutFolder, GridFile=None,BedId=102, list_glacier=['Jakobsen', 'Newman', '79NorthLarge', '79NorthZoom', 'Upernavik', 'West', 'Kanger', 'Helheim']):
+def greenland_results(PVDfile=None, OutFolder = None, GridFile=None,BedId=102, list_glacier=['Jakobsen', 'Newman', '79NorthLarge', '79NorthZoom', 'Upernavik', 'West', 'Kanger', 'Helheim']):
 
   # get active view
   SurfaceView = GetActiveViewOrCreate('RenderView')
@@ -277,4 +277,4 @@ if __name__ == "__main__":
   ## set view size for batch mode
   viewsize=[800,800]
 
-  greenland_results(PVDFile, OutFolder=Output)
+  greenland_results(PVDFile, Output)
