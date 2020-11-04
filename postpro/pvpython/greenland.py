@@ -34,7 +34,7 @@ def greenland_results(PVDfile=None, OutFolder = None, GridFile=None,BedId=102, l
   warpByZb = WarpByScalar(Input=run)
   # Properties modified on warpByScalar1
   warpByZb.Scalars = ['POINTS', 'zb']
-  warpByZb.ScaleFactor = 10.0
+  warpByZb.ScaleFactor = 1.0
 
   # show data in view
   warpByZbDisplay = Show(warpByZb, SurfaceView, 'UnstructuredGridRepresentation')
@@ -69,7 +69,7 @@ def greenland_results(PVDfile=None, OutFolder = None, GridFile=None,BedId=102, l
   calculatorUmod.ResultArrayName = 'Umod'
   calculatorUmod.Function = '(ssavelocity_average_X^2+ssavelocity_average_Y^2)^0.5'
 
-
+  print('start')
 ## we plot the statistics
 # average
   ResultTaub(calculatorUmod, OutFolder, 'Tau_b_average')
@@ -81,7 +81,7 @@ def greenland_results(PVDfile=None, OutFolder = None, GridFile=None,BedId=102, l
   ResultTaub(calculatorUmod, OutFolder, 'Tau_b_maximum')
 
 # standard deviation
-  ResultTaub(calculatorUmod, OutFolder, 'Tau_b_stddev', [0.00001,0.1])
+  ResultTaub(calculatorUmod, OutFolder, 'Tau_b_stddev', [0.0001,0.5])
 
 
 ## Coefficient of variation
@@ -99,7 +99,7 @@ def greenland_results(PVDfile=None, OutFolder = None, GridFile=None,BedId=102, l
 ## we plot now the average, the std and CV for the list of glaciers
   for glacier in list_glacier:
     ResultTaub(calculatorCV_Taub, OutFolder, 'Tau_b_average', choice_view=glacier)
-    ResultTaub(calculatorCV_Taub, OutFolder, 'Tau_b_stddev', [0.00001,0.1], choice_view=glacier)
+    ResultTaub(calculatorCV_Taub, OutFolder, 'Tau_b_stddev', [0.0001,0.5], choice_view=glacier)
     ResultTaub(calculatorCV_Taub, OutFolder, 'CV_Tau_b(%)', [1,100], choice_view=glacier)
 
 
@@ -123,15 +123,15 @@ def ViewGreenland(View, choice_view = 'full'):
    
   if choice_view == 'full':
     # Camera settings
-    View.CameraPosition = [110990.3125, -1996074.0, 8015672.0]
-    View.CameraFocalPoint = [110990.3125, -1996074.0, 9869.0]
-    View.CameraParallelScale = 2106070.0
+    View.CameraPosition = [230000.0, -1996074.0, 8015672.0]
+    View.CameraFocalPoint = [230000.0, -1996074.0, 9869.0]
+    View.CameraParallelScale = 1350000
    
   elif choice_view == 'Jakobsen':
     # Camera settings
     View.CameraPosition = [-141671.6, -2273001.9, 7062504.8]
     View.CameraFocalPoint = [-141671.6, -2273001.9, 0.0]
-    View.CameraParallelScale = 1262201.1
+    View.CameraParallelScale = 128145.7
    
   elif choice_view == 'Newman':
     # Camera settings
@@ -149,7 +149,7 @@ def ViewGreenland(View, choice_view = 'full'):
     # Camera settings
     View.CameraPosition = [465140.3, -1160772.8, 7062504.8]
     View.CameraFocalPoint = [465140.3, -1160772.8, 0.0]
-    View.CameraParallelScale = 155056.3
+    View.CameraParallelScale = 160000.0
 
   elif choice_view == 'Upernavik':
     # Camera settings
@@ -183,7 +183,7 @@ def ViewGreenland(View, choice_view = 'full'):
 #########################################################
 ## plot the results
 #########################################################
-def ResultTaub(Source=None, OutFolder, Variable='ssavalocity', interval = [0.001,1.0], choice_view = 'full'):
+def ResultTaub(Source=None, OutFolder=None, Variable='ssavalocity', interval = [0.001,1.0], choice_view = 'full'):
 
   if (Source==None):
     Source=FindSource("Results")
@@ -192,7 +192,8 @@ def ResultTaub(Source=None, OutFolder, Variable='ssavalocity', interval = [0.001
   SurfaceView = GetActiveViewOrCreate('RenderView')
   ViewGreenland(SurfaceView, choice_view)
   SurfDisplay = Show(Source,SurfaceView)
-  
+
+## plots without contour  
   # set scalar coloring
   ColorBy(SurfDisplay, ('POINTS',Variable))
   # get color transfer function/color map for 'RTData'
@@ -217,8 +218,8 @@ def ResultTaub(Source=None, OutFolder, Variable='ssavalocity', interval = [0.001
   
   ## display + savescreen
   Render(SurfaceView)
-  SaveScreenshot(OutFolder + Variable + choice_view + '.png', SurfaceView, ImageResolution=[972, 1181])
-
+  SaveScreenshot(OutFolder + '/' + Variable + choice_view + '.png', SurfaceView, ImageResolution=[972, 1180])
+  
   # get color transfer function/color map for 'Umod'
 
   UmodLUT = GetColorTransferFunction('Umod')
@@ -226,10 +227,7 @@ def ResultTaub(Source=None, OutFolder, Variable='ssavalocity', interval = [0.001
   # get opacity transfer function/opacity map for 'Umod'
   UmodPWF = GetOpacityTransferFunction('Umod')
 
-  ## making some contours
-
-  print(Source.PointData.keys())
-
+## making some contours
   # create a new 'Contour'
   ContourVel = Contour(Input=Source)
   ContourVel.ContourBy = ['POINTS', 'Umod']
@@ -250,11 +248,12 @@ def ResultTaub(Source=None, OutFolder, Variable='ssavalocity', interval = [0.001
 
   # show color bar/color legend
   ContDisplay.SetScalarBarVisibility(SurfaceView, True)
+  
 
 
   ## display + savescreen
   Render(SurfaceView)
-  SaveScreenshot(OutFolder + Variable + choice_view+'contour.png', SurfaceView, ImageResolution=[972, 1181])
+  SaveScreenshot(OutFolder + '/' + Variable + choice_view+'contour.png', SurfaceView, ImageResolution=[972, 1180])
   Hide(Source,SurfaceView)
   Hide(ContourVel,SurfaceView)
 
@@ -264,7 +263,7 @@ if __name__ == "__main__":
   ###############################
   # get args
   try:
-      opts, args = getopt.getopt(sys.argv[1:], "i:g:B:")
+      opts, args = getopt.getopt(sys.argv[1:], "i:o:")
   except getopt.GetoptError:
     sys.exit(2)
   for opt, arg in opts:                
@@ -277,4 +276,6 @@ if __name__ == "__main__":
   ## set view size for batch mode
   viewsize=[800,800]
 
+  print(PVDFile)
+  print(Output)
   greenland_results(PVDFile, Output)

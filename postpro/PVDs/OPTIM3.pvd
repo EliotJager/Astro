@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<VTKFile type="Collection" version="0.1"
+        byte_order="LittleEndian" 
+        compressor="vtkZLibDataCompressor">
+  <Collection>
+   <DataSet timestep="1" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM0.vtu"/>
+   <DataSet timestep="2" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM10.vtu"/>
+   <DataSet timestep="3" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM11.vtu"/>
+   <DataSet timestep="4" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM12.vtu"/>
+   <DataSet timestep="5" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM13.vtu"/>
+   <DataSet timestep="6" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM14.vtu"/>
+   <DataSet timestep="7" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM15.vtu"/>
+   <DataSet timestep="8" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM16.vtu"/>
+   <DataSet timestep="9" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM17.vtu"/>
+   <DataSet timestep="10" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM18.vtu"/>
+   <DataSet timestep="11" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM19.vtu"/>
+   <DataSet timestep="12" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM1.vtu"/>
+   <DataSet timestep="13" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM20.vtu"/>
+   <DataSet timestep="14" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM21.vtu"/>
+   <DataSet timestep="15" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM22.vtu"/>
+   <DataSet timestep="16" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM23.vtu"/>
+   <DataSet timestep="17" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM24.vtu"/>
+   <DataSet timestep="18" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM25.vtu"/>
+   <DataSet timestep="19" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM26.vtu"/>
+   <DataSet timestep="20" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM27.vtu"/>
+   <DataSet timestep="21" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM28.vtu"/>
+   <DataSet timestep="22" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM29.vtu"/>
+   <DataSet timestep="23" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM2.vtu"/>
+   <DataSet timestep="24" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM30.vtu"/>
+   <DataSet timestep="25" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM31.vtu"/>
+   <DataSet timestep="26" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM32.vtu"/>
+   <DataSet timestep="27" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM33.vtu"/>
+   <DataSet timestep="28" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM34.vtu"/>
+   <DataSet timestep="29" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM35.vtu"/>
+   <DataSet timestep="30" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM36.vtu"/>
+   <DataSet timestep="31" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM37.vtu"/>
+   <DataSet timestep="32" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM38.vtu"/>
+   <DataSet timestep="33" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM39.vtu"/>
+   <DataSet timestep="34" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM3.vtu"/>
+   <DataSet timestep="35" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM4.vtu"/>
+   <DataSet timestep="36" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM5.vtu"/>
+   <DataSet timestep="37" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM6.vtu"/>
+   <DataSet timestep="38" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM7.vtu"/>
+   <DataSet timestep="39" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM8.vtu"/>
+   <DataSet timestep="40" group="" part="0" 
+     file="/mnt/data/ejager/Greenland/RUNS2/TAUB/PARAM9.vtu"/>
+  </Collection>
+</VTKFile>
